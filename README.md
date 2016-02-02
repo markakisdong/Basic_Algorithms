@@ -3,7 +3,7 @@ Some basic algorithms implemented in C
 
 bellman_ford:
 
-        computes shortest paths from a single source vertex to all other vertices in a weighted directed graph.
+        computes shortest paths from a single source to all other vertices in a weighted directed graph.
         usage: ./a.out <input file> <source>
         input file:
             line1: number of vertices.
