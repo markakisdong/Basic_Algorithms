@@ -3,7 +3,7 @@ Some basic algorithms implemented in C
 
 bellman_ford:
 
-        computes shortest paths from a single source vertex to all of the other vertices in a weighted directed graph.
+        computes shortest paths from a single source vertex to all other vertices in a weighted directed graph.
         usage: ./a.out <input file> <source>
         input file:
             line1: number of vertices.
@@ -14,9 +14,9 @@ bellman_ford:
 
 find_max_sum_in_array:
 
-        find maximum sub array in an array, only need to assign the number of elements. The array is generated randomly.
+        find maximum sub array in an array, only need to assign the number of elements.
         usage: ./a.out
-        elements: the size of the random array
+        elements: the size of the randomly generated array
         output: stdout and running times.
         
     
