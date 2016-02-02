@@ -1,7 +1,8 @@
 # basic algorithms
 Some basic algorithms implemented in C
 
-    bellman_ford:
+bellman_ford:
+
         computes shortest paths from a single source vertex to all of the other vertices in a weighted directed graph.
         usage: ./a.out <input file> <source>
         input file:
@@ -11,19 +12,21 @@ Some basic algorithms implemented in C
             may the source be with you.
         output: bellman_ford_out.txt
 
+find_max_sum_in_array:
 
-    find_max_sum_in_array:
         find maximum sub array in an array, only need to assign the number of elements. The array is generated randomly.
         usage: ./a.out
         elements: the size of the random array
         output: stdout and running times.
         
     
-    find_max_sum_in_array_optimized:
+find_max_sum_in_array_optimized:
+
         the optimized version of finding the maximum sub array in an array.
         
     
-    johnson:
+johnson:
+
         computes shortest paths between all pairs of vertices in a sparse, edge weighted, directed graph.
         The algorithm works as this:
         1. add a node q to the graph, connected by zero-weight edges to each of the other nodes.
@@ -40,20 +43,23 @@ Some basic algorithms implemented in C
         output: johnson_out.txt
 
     
-    merge-inversion:
+merge-inversion:
+
         counts how many inversions used in a merge sort.
         usage: ./a.out
         10 numbers: give an array.
         output: stdout inversions.
 
 
-    nqueen:
+nqueen:
+
         the well-known n queen problem.
         usage: ./a.out <number of queens>
         output: stdout solutions.
 
 
-    optimal_bst:
+optimal_bst:
+
         computes the optimal binary search tree given probabilities pi and qj.
         usage: ./a.out <input file>
         input file:
