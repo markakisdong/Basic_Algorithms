@@ -54,7 +54,7 @@ merge-inversion:
 nqueen:
     the well-known n queen problem.
     usage: ./a.out <number of queens>
-
+    
     output: stdout solutions.
 
 
@@ -64,7 +64,7 @@ optimal_bst:
     input file:
         line1: (node 1, probability p1) (node 2, proba...)
         line2: (dummy keys 0, probability q0) (dummy keys 1, proba...)
-
+        
     output: optimal_bst_out.txt
 
 
