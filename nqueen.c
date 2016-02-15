@@ -29,7 +29,7 @@ void solve (int n, int col, int *hist) {
 int main (int argc, char **argv) {
     if (argc!=2) {
         printf("usage: ./a.out <n>\n");
-        return;
+        return -1;
     }
     int n = atoi(argv[1]);
 
