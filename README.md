@@ -1,71 +1,68 @@
-# basic algorithms
-Some basic algorithms implemented in C
+# Algorithms
+Some algorithms implemented in C.
 
-bellman_ford:
+## Bellman-Ford:
+Computes shortest paths from a single source to all other vertices in a weighted directed graph.
 
-        computes shortest paths from a single source to all other vertices in a weighted directed graph.
-        usage: ./a.out <input file> <source>
-        input file:
-            line1: number of vertices.
-            line2~n: adjacency matrix of the graph.
-        source:
-            may the source be with you.
-        output: bellman_ford_out.txt
+```bash
+./a.out <input file> <source>
+```
+`input file`: line1: number of vertices, line2~n: adjacency matrix of the graph.<br>
+`source`: the source vertice.
 
-find_max_sum_in_array:
+This will save a `bellman_ford_out.txt` file to the directory.
 
-        find maximum sub array in an array, only need to assign the number of elements.
-        usage: ./a.out
-        elements: the size of the randomly generated array
-        output: stdout and running times.
-        
-    
-find_max_sum_in_array_optimized:
+## Find Max Sum in Array:
+Find maximum sub-array in an array.
 
-        the optimized version of finding the maximum sub array in an array.
-        
-    
-johnson:
+```bash
+./a.out
+```
+`elements`: the size of the randomly generated array
 
-        computes shortest paths between all pairs of vertices in a sparse, edge weighted, directed graph.
-        The algorithm works as this:
-        1. add a node q to the graph, connected by zero-weight edges to each of the other nodes.
-        2. do bellman ford algorithm from source q, resulting h(v) of a path from q to v.
-           Terminated if negative weight cycle is found.
-        3. reweight the graph by w(u, v)' = w(u, v) + h(u) - h(v)
-        4. remove q and do dijkstra algorithm to find the shortest paths from each node s to 
-           every other vertex in the reweighted graph.
-        usage: ./a.out <input file>
-        input file:
-            line1: number of vertices
-            line2: number of edges
-            line3~n: <vertex> <vertex> <edge weight>
-        output: johnson_out.txt
+Also provide an optimized version.
 
-    
-merge-inversion:
+## Johnson Algorithm:
+Computes shortest paths between all pairs of vertices in a sparse, edge weighted, directed graph.
 
-        counts how many inversions used in a merge sort.
-        usage: ./a.out
-        10 numbers: give an array.
-        output: stdout inversions.
+The algorithm works as this:
+1. add a node q to the graph, connected by zero-weight edges to each of the other nodes.
+2. do bellman ford algorithm from source q, resulting h(v) of a path from q to v. Terminate if negative weight cycle is found.
+3. reweight the graph by w(u, v)' = w(u, v) + h(u) - h(v)
+4. remove q and do dijkstra algorithm to find the shortest paths from each node s to every other vertex in the reweighted graph.
 
+```bash
+./a.out <input file>
+```
+`input file`: line1: number of vertices, line2: number of edges, line3~n: <vertex> <vertex> <edge weight>.
 
-nqueen:
+This will save a `johnson_out.txt` file to the directory.
+   
+## Merge Inversion:
+Counts how many inversions used in a merge sort.
 
-        the well-known n queen problem.
-        usage: ./a.out <number of queens>
-        output: stdout solutions.
+```bash
+./a.out
+```
+`10 numbers`: give an array.
 
+## N-Queen problem:
+The classic N-Queen problem.
 
-optimal_bst:
+## Optimal Binary Search Tree:
+Computes the optimal binary search tree given probabilities pi and qj.
 
-        computes the optimal binary search tree given probabilities pi and qj.
-        usage: ./a.out <input file>
-        input file:
-            line1: (node 1, probability p1) (node 2, proba...)
-            line2: (dummy keys 0, probability q0) (dummy keys 1, proba...)
-        output: optimal_bst_out.txt
+```bash
+./a.out <input file>
+```
+`input file`: line1: (node 1, probability p1) (node 2, proba...), line2: (dummy keys 0, probability q0) (dummy keys 1, proba...)
 
+This will save a `optimal_bst_out.txt` file to the directory.
 
-to be continued...
+## Shannon-Fano coding:
+Construct a prefix code based on a set of symbols and their probabilities.
+
+```bash
+./a.out
+```
+`8 elements`: number in sorted order

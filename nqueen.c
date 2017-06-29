@@ -3,9 +3,9 @@
 int solutions = 0;
 
 int attack (int i, int j, int col, int *hist) {
-    if (hist[j]==i)
+    if (hist[j] == i)
         return 1;
-    if (abs(hist[j] - i)==col - j)
+    if (abs(hist[j] - i) == col - j)
         return 1;
     else
         return 0;
@@ -13,21 +13,21 @@ int attack (int i, int j, int col, int *hist) {
 
 void solve (int n, int col, int *hist) {
 
-    if (col==n) {
+    if (col == n) {
         solutions++;
         return;
     }
     int i, j;
-    for (i=0, j=0; i<n; i++) {
-        for (j=0; j<col && !attack(i, j, col, hist); j++);
-        if (j<col) continue;
+    for (i=0, j=0; i < n; i++) {
+        for (j=0; j < col && !attack(i, j, col, hist); j++);
+        if (j < col) continue;
 
         hist[col] = i;
         solve(n, col+1, hist);
     }
 }
 int main (int argc, char **argv) {
-    if (argc!=2) {
+    if (argc != 2) {
         printf("usage: ./a.out <n>\n");
         return -1;
     }

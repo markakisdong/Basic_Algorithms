@@ -14,9 +14,9 @@ max_subarr find_max_cross (int A[], int left, int mid, int right) {
     int left_sum = MIN_INT;
     int sum = 0;
     
-    for (i=mid-1; i>=left; i--) {
+    for (i=mid-1; i >= left; i--) {
         sum += A[i];
-        if (sum>left_sum) {
+        if (sum > left_sum) {
             left_sum = sum;
             rst.left = i;
         }
@@ -24,9 +24,9 @@ max_subarr find_max_cross (int A[], int left, int mid, int right) {
 
     int right_sum = MIN_INT;
     sum = 0;
-    for (j=mid; j<right; j++) {
+    for (j=mid; j < right; j++) {
         sum += A[j];
-        if (sum>right_sum) {
+        if (sum > right_sum) {
             right_sum = sum;
             rst.right = j;
         }
@@ -37,18 +37,18 @@ max_subarr find_max_cross (int A[], int left, int mid, int right) {
 }
 
 max_subarr find_max_sub (int A[], int left, int right) {
-    if (left+1==right) {
+    if (left+1 == right) {
         max_subarr rst = {left, right, A[left]};
         return rst;
     } else {
-        int mid = (left+right)/2;
+        int mid = (left + right)/2;
         max_subarr arr_left = find_max_sub(A, left, mid);
         max_subarr arr_right = find_max_sub(A, mid, right);
         max_subarr arr_cross = find_max_cross(A, left, mid, right);
 
-        if (arr_left.sum>=arr_right.sum && arr_left.sum>=arr_cross.sum)
+        if (arr_left.sum >= arr_right.sum && arr_left.sum >= arr_cross.sum)
             return arr_left;
-        else if (arr_right.sum>=arr_left.sum && arr_right.sum>=arr_cross.sum)
+        else if (arr_right.sum >= arr_left.sum && arr_right.sum >= arr_cross.sum)
             return arr_right;
         else
             return arr_cross;
@@ -60,9 +60,9 @@ max_subarr find_max_bf (int A[], int left, int right) {
     int i, j;
     max_subarr rst = {0, 0, MIN_INT};
     
-    for (i=left; i<right; i++) {
+    for (i=left; i < right; i++) {
         int sum = 0;
-        for (j=i; j<right; j++) {
+        for (j=i; j < right; j++) {
             sum += A[j];
             //printf("sum = %d\n", sum);
             if (sum > rst.sum) {
@@ -80,27 +80,26 @@ max_subarr find_max_mix (int A[], int left, int right) {
     if (right - left < n) {
         return find_max_bf(A, left, right);
     } else {
-        int mid = (left+right)/2;
+        int mid = (left + right)/2;
         max_subarr arr_left = find_max_mix(A, left, mid);
         max_subarr arr_right = find_max_mix(A, mid, right);
         max_subarr arr_cross = find_max_cross(A, left, mid, right);
 
-        if (arr_left.sum>=arr_right.sum && arr_left.sum>=arr_cross.sum)
+        if (arr_left.sum >= arr_right.sum && arr_left.sum >= arr_cross.sum)
             return arr_left;
-        else if (arr_right.sum>=arr_left.sum && arr_right.sum>=arr_cross.sum)
+        else if (arr_right.sum >= arr_left.sum && arr_right.sum >= arr_cross.sum)
             return arr_right;
         else
             return arr_cross;
     }
 }
 
-int main () {
-    
+int main (void) {
     int type, e, i, l, r;
     int arr[1000000] = {0};
-    for (i=0; i<1000000; i++) {
-        arr[i] = rand()%201 - 100;
-        if (arr[i]==0) arr[i] = 1;
+    for (i=0; i < 1000000; i++) {
+        arr[i] = rand() % 201 - 100;
+        if (arr[i] == 0) arr[i] = 1;
     }
 
     printf("elements: ");
@@ -116,7 +115,7 @@ int main () {
     max_subarr brute_force = find_max_bf(arr, 0, e-1);
     stop = clock();
 
-    time_brute = ((double)(stop-start))/CLOCKS_PER_SEC;
+    time_brute = ((double)(stop - start))/CLOCKS_PER_SEC;
 
 
     printf("brute-force-time: %lf\n", time_brute);
@@ -125,13 +124,13 @@ int main () {
     max_subarr recursion = find_max_sub(arr, 0, e-1);
     stop = clock();
 
-    time_rc = ((double)(stop-start))/CLOCKS_PER_SEC;
+    time_rc = ((double)(stop - start))/CLOCKS_PER_SEC;
 
     start = clock();
     max_subarr mix = find_max_mix(arr, 0, e-1);
     stop = clock();
 
-    time_mix = ((double)(stop-start))/CLOCKS_PER_SEC;
+    time_mix = ((double)(stop - start))/CLOCKS_PER_SEC;
 
     printf("==========================\nrecursion-time:   %lf\n", time_rc);
     printf("==========================\nmix-time:         %lf\n", time_mix);
